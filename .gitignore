@@ -1,0 +1,9 @@
+/xviv
+/.venv
+/build
+*.log
+/NA
+/.mypy_cache
+/.cache
+/.Xil
+clockInfo.txt
