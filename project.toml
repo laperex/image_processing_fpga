@@ -22,12 +22,11 @@ wrapper_dir = "srcs/rtl/wrapper"
 [sources]
 rtl = [
 	"srcs/rtl/**/*.sv",
-	"srcs/rtl/**/*.v",
 ]
 
 sim = [
 	"srcs/rtl/**/*.sv",
-	"srcs/sim/ip_systolic_tb.sv",
+	"srcs/sim/*.sv",
 ]
 
 [[ip]]
@@ -40,8 +39,12 @@ top = "ip_rgb_to_hsv_wrapper"
 rtl = [
 	"srcs/rtl/axi_types.sv",
 	"srcs/rtl/axi_lite_slave.sv",
+
+	"srcs/rtl/cv_types.sv",
+	"srcs/rtl/cv_rgb_to_hsv.sv",
 	"srcs/rtl/ip_rgb_to_hsv.sv",
-	"srcs/rtl/ip_rgb_to_hsv_wrapper.sv",
+	
+	"srcs/rtl/wrapper/ip_rgb_to_hsv_wrapper.sv",
 ]
 
 [[ip]]
@@ -54,18 +57,22 @@ top = "ip_inrange_wrapper"
 rtl = [
 	"srcs/rtl/axi_types.sv",
 	"srcs/rtl/axi_lite_slave.sv",
+	
+	"srcs/rtl/cv_types.sv",
+	"srcs/rtl/cv_inrange.sv",
 	"srcs/rtl/ip_inrange.sv",
-	"srcs/rtl/ip_inrange_wrapper.sv",
+
+	"srcs/rtl/wrapper/ip_inrange_wrapper.sv",
 ]
 
 [[bd]]
-name = "bd_systolic_test"
+name = "bd_image_processing"
 version = "1.0"
 
-hooks = "scripts/bd/bd_systolic_test_1.0.tcl"
+hooks = "scripts/bd/bd_image_processing_1.0.tcl"
 
 [[synthesis]]
-top = "bd_systolic_test_wrapper"
-hooks = "scripts/synth/bd_systolic_test_wrapper.tcl"
+top = "bd_image_processing_wrapper"
+hooks = "scripts/synth/bd_image_processing_wrapper.tcl"
 
 fpga = "pynq_z2"
