@@ -74,5 +74,3 @@ hooks = "scripts/bd/bd_image_processing_1.0.tcl"
 [[synthesis]]
 top = "bd_image_processing_wrapper"
 hooks = "scripts/synth/bd_image_processing_wrapper.tcl"
-
-fpga = "pynq_z2"
