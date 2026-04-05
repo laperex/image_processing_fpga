@@ -7,3 +7,7 @@ xviv create-ip --ip ip_rgb_to_hsv
 xviv create-ip --ip ip_inrange
 
 xviv create-bd --bd bd_image_processing
+
+xviv generate-bd --bd bd_image_processing
+
+xviv synthesis --top bd_image_processing_wrapper

@@ -16,7 +16,7 @@ module cv_rgb_to_hsv (
 	localparam FRAC = 16;
 
 	typedef struct packed {
-		pkt_rgb in;
+		cv_pkt_pkg::pkt_rgb in;
 
 		logic [WIDTH - 1: 0] cmax;
 		logic [WIDTH - 1: 0] cmin;

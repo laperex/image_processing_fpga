@@ -4,7 +4,7 @@ module ip_inrange_wrapper #(
 	parameter integer S_AXIS_TDATA_WIDTH = 64,
 	parameter integer S_AXIS_START_COUNT = 32,
 	parameter integer S_AXIL_START_DATA_VALUE = 32'hAA000000,
-	parameter integer S_AXIL_TARGET_SLAVE_BASE_ADDR = 32'h40000000,
+	parameter integer S_AXIL_TARGET_SLAVE_BASE_ADDR = 32'h1000,
 	parameter integer S_AXIL_ADDR_WIDTH = 32,
 	parameter integer S_AXIL_DATA_WIDTH = 32,
 	parameter integer S_AXIL_TRANSACTIONS_NUM = 4

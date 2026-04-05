@@ -21,7 +21,11 @@ wrapper_dir = "srcs/rtl/wrapper"
 
 [sources]
 rtl = [
+	"srcs/rtl/cv_types.sv",
 	"srcs/rtl/**/*.sv",
+	"srcs/rtl/**/*.v",
+	"srcs/rtl/wrapper/**/*.sv",
+	"srcs/rtl/wrapper/**/*.v",
 ]
 
 sim = [

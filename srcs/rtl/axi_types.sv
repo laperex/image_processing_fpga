@@ -115,7 +115,7 @@ endinterface: if_axi_full
 
 interface if_axi_lite #(	
 	parameter integer START_DATA_VALUE			= 32'hAA000000,
-	parameter integer TARGET_SLAVE_BASE_ADDR	= 32'h40000000,
+	parameter integer TARGET_SLAVE_BASE_ADDR	= 32'h1000,
 	parameter integer ADDR_WIDTH		= 32,
 	parameter integer DATA_WIDTH		= 32,
 	parameter integer TRANSACTIONS_NUM	= 4

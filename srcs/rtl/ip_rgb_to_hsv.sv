@@ -30,13 +30,18 @@ module ip_rgb_to_hsv (
 	assign m_axis.tdata[8 * (4 + 0)+: 8] = m1_out.h;
 	assign m_axis.tdata[8 * (4 + 1)+: 8] = m1_out.s;
 	assign m_axis.tdata[8 * (4 + 2)+: 8] = m1_out.v;
+	
+	wire m0_m_tvalid;
+	wire m1_m_tvalid;
+	wire m0_m_tlast;
+	wire m1_m_tlast;
 
 	assign m_axis.tvalid = m0_m_tvalid | m1_m_tvalid;
 	assign m_axis.tlast = m0_m_tlast | m1_m_tlast;
 
 	cv_rgb_to_hsv u_cv_rgb_to_hsv_0 (
-		.aclk         (aclk),
-		.aresetn     (aresetn),
+		.aclk        (s_axis.aclk),
+		.aresetn     (s_axis.aresetn),
 		
 		.in          (m0_in),
 		.s_tvalid    (m0_s_tvalid),
@@ -48,8 +53,8 @@ module ip_rgb_to_hsv (
 	);
 
 	cv_rgb_to_hsv u_cv_rgb_to_hsv_1 (
-		.aclk         (aclk),
-		.aresetn     (aresetn),
+		.aclk        (s_axis.aclk),
+		.aresetn     (s_axis.aresetn),
 		
 		.in          (m1_in),
 		.s_tvalid    (m1_s_tvalid),

@@ -67,7 +67,7 @@ module ip_inrange (
 
 
 	cv_inrange u_cv_inrange_0 (
-		.clk         (s_axis.aclk),
+		.aclk         (s_axis.aclk),
 		.aresetn     (s_axis.aclk),
 		.s_tvalid    (s_axis.tvalid),
 		.s_tlast     (s_axis.tlast),
@@ -75,12 +75,12 @@ module ip_inrange (
 		.lower       (lower),
 		.upper       (upper),
 		.mask        (mask_0),
-		.m_tvalid    (m_axis_tvalid),
-		.m_tlast     (m_axis_tlast)
+		.m_tvalid    (m_axis.tvalid),
+		.m_tlast     (m_axis.tlast)
 	);
 
 	cv_inrange u_cv_inrange_1 (
-		.clk         (s_axis.aclk),
+		.aclk         (s_axis.aclk),
 		.aresetn     (s_axis.aclk),
 		// .s_tvalid    (s_axis.tvalid),
 		// .s_tlast     (s_axis.tlast),

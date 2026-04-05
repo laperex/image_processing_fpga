@@ -7,3 +7,4 @@
 /.cache
 /.Xil
 clockInfo.txt
+vivado*.str
