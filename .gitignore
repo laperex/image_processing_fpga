@@ -1,11 +1,52 @@
+# --- xviv / project tooling ---
 /xviv
 /.venv
-/build
-*.log
-/NA
 /.mypy_cache
 /.cache
-/.Xil
-clockInfo.txt
+/.tree
+
+# --- build outputs ---
+/build
+/NA
+
+# --- Vivado project run artifacts ---
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.gen/
+*.srcs/*/ip/
+hd_visual/
+
+# --- Vivado logs & journals ---
+*.log
+*.jou
+*.str
 vivado*.str
-.tree
+vivado*.jou
+
+# --- Vivado webtalk ---
+webtalk*.jou
+webtalk*.log
+usage_statistics_webtalk.xml
+
+# --- Vivado debug / reports ---
+*.pb
+*.xsa
+*.ltx
+*.debug_nets.ltx
+clockInfo.txt
+FinalUnmatchedCellsToUnplace.txt
+FinalUnmatchedCellsToUnplace.txt
+
+# --- Xilinx temp ---
+.Xil/
+fsm_encoding.os
+*.xpe
+
+# --- bitstream / programming files ---
+*.bit
+*.mcs
+*.prm
+*.bin
