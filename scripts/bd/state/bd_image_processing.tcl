@@ -438,7 +438,7 @@ set bCheckIPsPassed 1
     CONFIG.PCW_PACKAGE_NAME {clg400} \
     CONFIG.PCW_PCAP_PERIPHERAL_CLKSRC {IO PLL} \
     CONFIG.PCW_PCAP_PERIPHERAL_FREQMHZ {200} \
-    CONFIG.PCW_PERIPHERAL_BOARD_PRESET {None} \
+    CONFIG.PCW_PERIPHERAL_BOARD_PRESET {part0} \
     CONFIG.PCW_PLL_BYPASSMODE_ENABLE {0} \
     CONFIG.PCW_PRESET_BANK0_VOLTAGE {LVCMOS 3.3V} \
     CONFIG.PCW_PRESET_BANK1_VOLTAGE {LVCMOS 1.8V} \
@@ -698,15 +698,14 @@ set bCheckIPsPassed 1
   # Create address segments
   assign_bd_address -offset 0x40400000 -range 0x00010000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs axi_dma_0/S_AXI_LITE/Reg] -force
   assign_bd_address -offset 0x60000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs ip_inrange_0/s_axil/reg0] -force
-  assign_bd_address -offset 0x00000000 -range 0x20000000 -target_address_space [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] -force
+  assign_bd_address -offset 0x00000000 -range 0x10000000 -target_address_space [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] -force
+  assign_bd_address -offset 0x10000000 -range 0x10000000 -target_address_space [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP2/HP2_DDR_LOWOCM] -force
   assign_bd_address -offset 0x00000000 -range 0x10000000 -target_address_space [get_bd_addr_spaces axi_dma_0/Data_S2MM] [get_bd_addr_segs processing_system7_0/S_AXI_HP0/HP0_DDR_LOWOCM] -force
   assign_bd_address -offset 0x10000000 -range 0x10000000 -target_address_space [get_bd_addr_spaces axi_dma_0/Data_S2MM] [get_bd_addr_segs processing_system7_0/S_AXI_HP2/HP2_DDR_LOWOCM] -force
-
-  # Exclude Address Segments
-  exclude_bd_addr_seg -target_address_space [get_bd_addr_spaces axi_dma_0/Data_MM2S] [get_bd_addr_segs processing_system7_0/S_AXI_HP2/HP2_DDR_LOWOCM]
 
 
   # Restore current instance
   current_bd_instance $oldCurInst
 
+  validate_bd_design
   
