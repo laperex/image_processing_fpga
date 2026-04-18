@@ -8,3 +8,4 @@
 /.Xil
 clockInfo.txt
 vivado*.str
+.tree

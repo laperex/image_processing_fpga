@@ -1,44 +1,15 @@
-[vivado]
-path = "/opt/Xilinx/Vivado/2024.1"
-
-max_threads = 20
-mode = "batch"
-
-[vitis]
-path = "/opt/Xilinx/Vitis/2024.1"
-
-[fpga]
+[fpga.pynq]
 part       = "xc7z020clg400-1"
 board_part = "tul.com.tw:pynq-z2:part0:1.0"
 board_repo = "/home/laperex/Programming/Vivado/vivado-boards/new/board_files"
-
-[build]
-dir = "build"
-ip_repo = "build/ip"
-bd_dir = "build/bd"
-
-wrapper_dir = "srcs/rtl/wrapper"
-
-[sources]
-rtl = [
-	"srcs/rtl/cv_types.sv",
-	"srcs/rtl/**/*.sv",
-	"srcs/rtl/**/*.v",
-	"srcs/rtl/wrapper/**/*.sv",
-	"srcs/rtl/wrapper/**/*.v",
-]
-
-sim = [
-	"srcs/rtl/**/*.sv",
-	"srcs/sim/*.sv",
-]
 
 [[ip]]
 name = "ip_rgb_to_hsv"
 vendor = "laperex.org"
 library = "custom_axi_ip"
 version = "1.0"
-top = "ip_rgb_to_hsv_wrapper"
+
+create-wrapper = true
 
 rtl = [
 	"srcs/rtl/axi_types.sv",
@@ -46,9 +17,8 @@ rtl = [
 
 	"srcs/rtl/cv_types.sv",
 	"srcs/rtl/cv_rgb_to_hsv.sv",
-	"srcs/rtl/ip_rgb_to_hsv.sv",
-	
-	"srcs/rtl/wrapper/ip_rgb_to_hsv_wrapper.sv",
+
+	"srcs/rtl/ip_rgb_to_hsv.sv"
 ]
 
 [[ip]]
@@ -56,25 +26,21 @@ name = "ip_inrange"
 vendor = "laperex.org"
 library = "custom_axi_ip"
 version = "1.0"
-top = "ip_inrange_wrapper"
+
+create-wrapper = true
 
 rtl = [
 	"srcs/rtl/axi_types.sv",
 	"srcs/rtl/axi_lite_slave.sv",
-	
+
 	"srcs/rtl/cv_types.sv",
 	"srcs/rtl/cv_inrange.sv",
-	"srcs/rtl/ip_inrange.sv",
 
-	"srcs/rtl/wrapper/ip_inrange_wrapper.sv",
+	"srcs/rtl/ip_inrange.sv"
 ]
 
 [[bd]]
 name = "bd_image_processing"
-version = "1.0"
-
-hooks = "scripts/bd/bd_image_processing_1.0.tcl"
 
 [[synthesis]]
-top = "bd_image_processing_wrapper"
-hooks = "scripts/synth/bd_image_processing_wrapper.tcl"
+bd = "bd_image_processing"
